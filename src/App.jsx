@@ -1,27 +1,14 @@
-// react, componentes, estáticos
-import { useContext, useEffect } from 'react';
-import { QuizContext } from './context/quiz';
+import MainContent from './components/MainContent';
+import Sidebar from './components/Sidebar';
 
-import Welcome from './components/Welcome';
-import Question from './components/Question';
-import GameOver from './components/GameOver';
-
-import './App.css';
+import './styles/components/app.sass';
 
 function App() {
-  const [quizState, dispatch] = useContext(QuizContext);
-
-  useEffect(() =>{
-     //TODOEMBARALHAR AS PERGUNTAS !
-    dispatch({type: "REORDER_QUESTIONS"});
-  }, []);
-
   return (
-    <div className="App">
-      <h1>Quiz de Programação</h1>
-      {quizState.gameStage === "Start" && <Welcome/>}
-      {quizState.gameStage === "Playing" && <Question/>}
-      {quizState.gameStage === "End" && <GameOver/>}
+    <div id="portfolio">
+      <h1>Wellington Pinheiro</h1>
+      <Sidebar/>
+      <MainContent/>
     </div>
   );
 }
